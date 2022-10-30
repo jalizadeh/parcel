@@ -25,14 +25,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class ParcelEntity {
-	
-	public ParcelEntity(Long valueOf, String name2, Double lat, Double lng, Double lat2, Double lng2,
-			Double distanceToDestination2, DistanceCalculator create) {
-		// TODO Auto-generated constructor stub
-	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	private String name;
@@ -47,8 +42,8 @@ public class ParcelEntity {
 	@Column(name = "destination_lng")
 	private Double destinationLng;
 	
-	@Column(name = "distance_to_destination")
-	private Double distanceToDestination;
+	//@Column(name = "distance_to_destination")
+	//private Double distanceToDestination;
 
 	@Column(name = "distance_calculation_method")
 	@Enumerated(EnumType.STRING)

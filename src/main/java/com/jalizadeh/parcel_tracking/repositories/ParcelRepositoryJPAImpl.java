@@ -67,13 +67,13 @@ public class ParcelRepositoryJPAImpl implements ParcelRepository{
 	
 	
 	private ParcelEntity toParcelEntity(Parcel p) throws Exception {
-		return new ParcelEntity(Long.valueOf(0), 
+		return new ParcelEntity(0L, 
 				p.getName(), 
 				p.getLocation().getLat(), 
 				p.getLocation().getLng(), 
 				p.getDestination().getLat(), 
 				p.getDestination().getLng(), 
-				p.getDistanceToDestination(),
+				//p.getDistanceToDestination(),
 				DistanceCalculationMethod.FLIGHT_DISTANCE
 			);
 	}
@@ -82,13 +82,20 @@ public class ParcelRepositoryJPAImpl implements ParcelRepository{
 		if(p == null)
 			return null;
 		
-		return new Parcel(
-				p.getId(),
-				p.getName(),
-				new Location(p.getLocationLat(), p.getLocationLng()),
-				new Location(p.getDestinationLat(), p.getDestinationLng()),
-				p.getDistanceToDestination()
-				);
+		Parcel parcel = null;
+		try {
+			parcel = new Parcel(
+					p.getId(),
+					p.getName(),
+					new Location(p.getLocationLat(), p.getLocationLng()),
+					new Location(p.getDestinationLat(), p.getDestinationLng()),
+					dcFactory.create(p.getDistanceCalculationMethod())
+					);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return parcel;
 	}
 	
 

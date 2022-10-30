@@ -24,6 +24,15 @@ public class Parcel implements Cloneable{
 		//this.distanceCalculator = distanceCalculator;
 		this.distanceToDestination = distanceCalculator.calculateDistanceInMeters(this.location, this.destination);
 	}
+	
+	public Parcel(Long id, String name, Location location, Location destination, DistanceCalculator distanceCalculator) {
+		this.id = id;
+		this.name = name;
+		this.location = location;
+		this.destination = destination;
+		//this.distanceCalculator = distanceCalculator;
+		this.distanceToDestination = distanceCalculator.calculateDistanceInMeters(this.location, this.destination);
+	}
 
 	@Override
 	public Object clone() throws CloneNotSupportedException {

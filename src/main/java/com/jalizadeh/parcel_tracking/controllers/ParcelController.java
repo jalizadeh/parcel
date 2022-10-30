@@ -38,6 +38,7 @@ public class ParcelController {
 							new Location(payload.location.getLat(), payload.location.getLng()),
 							new Location(payload.destination.getLat(), payload.destination.getLng()), 
 							distanceCalculatorFactory.create(payload.getDistanceCalculationMethod())));
+			System.out.println("created");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
