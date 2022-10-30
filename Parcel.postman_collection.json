@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "7f48df02-3c12-47da-81a1-eb55b690451e",
+		"name": "Parcel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add FD",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"{{$randomProduct}} - {{$randomBankAccountBic}}\",\r\n    \"location\": {\r\n        \"lat\" : {{$randomLatitude}},\r\n        \"lng\" : {{$randomLongitude}}\r\n    },\r\n    \"destination\": {\r\n        \"lat\" : {{$randomLatitude}},\r\n        \"lng\" : {{$randomLongitude}}\r\n    },\r\n    \"distanceCalculationMethod\" : \"FLIGHT_DISTANCE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/parcels",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"parcels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add OSM",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"{{$randomProduct}} - {{$randomBankAccountBic}}\",\r\n    \"location\": {\r\n        \"lat\" : {{$randomLatitude}},\r\n        \"lng\" : {{$randomLongitude}}\r\n    },\r\n    \"destination\": {\r\n        \"lat\" : {{$randomLatitude}},\r\n        \"lng\" : {{$randomLongitude}}\r\n    },\r\n    \"distanceCalculationMethod\" : \"OSM_DISTANCE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/parcels",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"parcels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/parcels",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"parcels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/parcels/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"parcels",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Loc",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"lat\" : {{$randomLatitude}},\r\n    \"lng\" : {{$randomLongitude}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/parcels/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"parcels",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete item",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"lg\",\r\n    \"location\": {\r\n        \"lat\" : 672.0,\r\n        \"lng\" : 568.11\r\n    },\r\n    \"destination\": {\r\n        \"lat\" : 672.0,\r\n        \"lng\" : 568.11\r\n    },\r\n    \"distanceCalculationMethod\" : \"FLIGHT_DISTANCE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/parcels/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"parcels",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
